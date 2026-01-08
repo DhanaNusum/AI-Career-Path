@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # Initialize Gemini client
-client = genai.Client(api_key="AIzaSyAGxNiNz3AnPtdNN4m5-xfvsvbiPRxpIEQ")
+client = genai.Client(api_key="xxx")
 # Custom CSS
 st.markdown("""
 <style>
@@ -549,4 +549,5 @@ def main():
         st.markdown("""<div class="info-box"><h3>👋 Welcome to CareerPath!</h3><p>Select a goal from above to get started with your personalized career guidance.</p></div>""", unsafe_allow_html=True)
 
 if __name__ == "__main__":
+
     main()
