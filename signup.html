@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMentor - Create Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --success: #2ecc71; }
+        body { background-color: #f9f9f9; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        
+        .auth-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        .auth-box h2 { color: var(--primary); text-align: center; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+        .cta-button { 
+            background-color: var(--success); 
+            color: white; 
+            border: none; 
+            padding: 0.7rem 1.5rem; 
+            border-radius: 5px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .cta-button:hover { background-color: #27ae60; }
+        .switch-auth { text-align: center; margin-top: 20px; }
+        .switch-auth a { color: var(--secondary); text-decoration: none; font-weight: 500; }
+        .auth-message { text-align: center; margin-bottom: 15px; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="auth-box">
+        <h2>Create Your SkillMentor Account</h2>
+        <p class="auth-message" id="signup-message"></p>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="password" name="password" required minlength="6">
+            </div>
+            <button type="submit" class="cta-button">Create Account</button>
+        </form>
+        <div class="switch-auth">
+            <p>Already have an account? <a href="login.html">Log In</a></p>
+        </div>
+    </div>
+
+    <script>
+        // *** WARNING: This is a client-side simulation. DO NOT USE IN PRODUCTION. ***
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.email.value.trim();
+            const password = this.password.value;
+            const messageEl = document.getElementById('signup-message');
+
+            let users = JSON.parse(localStorage.getItem('users')) || {};
+            
+            // 1. Check if email already exists
+            if (users[email]) {
+                messageEl.textContent = '❌ An account with this email already exists.';
+                messageEl.style.color = 'var(--accent)';
+                return;
+            }
+            
+            // 2. Simple password validation (for demo)
+            if (password.length < 6) {
+                messageEl.textContent = '❌ Password must be at least 6 characters.';
+                messageEl.style.color = 'var(--accent)';
+                return;
+            }
+
+            // 3. SAVE THE EMAIL and password (unsecurely, for demo)
+            users[email] = { email: email, password: password };
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // SUCCESS
+            messageEl.textContent = '✅ Account created! Redirecting to home...';
+            messageEl.style.color = 'var(--success)';
+
+            // 4. Redirect to the index page
+            setTimeout(() => {
+                window.location.href = 'index.html'; // <--- MODIFIED TO INDEX PAGE
+            }, 1500); 
+        });
+    </script>
+</body>
+</html>

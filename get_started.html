@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPath - Get Started</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles copied from your index.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --success: #2ecc71; }
+        body { 
+            background-color: #f9f9f9; 
+            color: #333; 
+            min-height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 20px;
+        }
+
+        .cta-container {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .cta-container h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .cta-container p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .cta-button {
+            display: block;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .login-button {
+            background-color: var(--secondary);
+        }
+
+        .login-button:hover {
+            background-color: #2980b9;
+        }
+
+        .signup-button {
+            background-color: var(--success); /* Using success color for new account */
+        }
+
+        .signup-button:hover {
+            background-color: #27ae60;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="cta-container">
+        <h2>Start Your SkillMentor Journey</h2>
+        <p>Choose the option that fits you best:</p>
+        
+        <a href="login.html" class="cta-button login-button">
+            <i class="fas fa-sign-in-alt"></i> Already have an account? **Log In**
+        </a>
+        
+        <a href="signup.html" class="cta-button signup-button">
+            <i class="fas fa-user-plus"></i> New user? **Create Account**
+        </a>
+
+        <a href="index.html" class="back-link">
+            &larr; Back to Home
+        </a>
+    </div>
+</body>
+</html>

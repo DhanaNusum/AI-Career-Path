@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPath - Mandatory Certifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Setup (Copying from index.html) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header (Matching C_index.html) */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        /* Certifications Page Specific Styles */
+        .certs-hero {
+            background: var(--secondary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .certs-hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certs-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .branch-section {
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .branch-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .branch-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .branch-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Placeholder Backgrounds for Branches */
+        .cse { background-color: #2ecc71; }
+        .ece { background-color: #3498db; }
+        .eee { background-color: #f39c12; }
+        .mech { background-color: #e74c3c; }
+        .civil { background-color: #9b59b6; }
+
+
+        .cert-content {
+            padding: 1.5rem;
+        }
+
+        .cert-content h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .cert-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .cert-type {
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+        }
+
+        .free {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .paid {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .cert-link {
+            display: block;
+            text-align: center;
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cert-link:hover {
+            background-color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>SkillMentor</h1>
+                </div>
+                <nav>
+                    <a href="index.html" class="cta-button">Back to Home</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="certs-hero">
+        <div class="container">
+            <h2>Mandatory B.Tech Certifications</h2>
+            <p>A curated list of essential Free and Paid certifications for each major engineering branch.</p>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <section id="cse" class="branch-section">
+    <div class="branch-header">
+        <h3><i class="fas fa-laptop-code"></i> Computer Science Engineering (CSE)</h3>
+    </div>
+    <div class="certs-grid">
+        <div class="cert-card">
+            <div class="cert-image cse">
+                <i class="fab fa-python"></i> Python & Automation (Sample Image)
+            </div>
+            <div class="cert-content">
+                <h4>Python Programming Basics (via Coursera)</h4>
+                <div class="cert-info">
+                    <span class="cert-type free">FREE</span>
+                    <span>Provider: Google (via Coursera Audit)</span>
+                </div>
+                <a href="https://www.netacad.com/courses/python-essentials-1?courseLang=en-US" target="_blank" class="cert-link">View Course &rarr;</a>
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-image cse">
+                <i class="fas fa-database"></i> SQL Fundamentals (Sample Image)
+            </div>
+            <div class="cert-content">
+                <h4>SQL Fundamentals for Data Science</h4>
+                <div class="cert-info">
+                    <span class="cert-type free">FREE</span>
+                    <span>Provider: University of California, Davis (via Coursera Audit)</span>
+                </div>
+                <a href="https://www.coursera.org/learn/intro-sql" target="_blank" class="cert-link">View Course &rarr;</a>
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-image cse">
+                <i class="fab fa-git-alt"></i> Git/GitHub (Sample Image)
+            </div>
+            <div class="cert-content">
+                <h4>Version Control with Git and GitHub</h4>
+                <div class="cert-info">
+                    <span class="cert-type free">FREE</span>
+                    <span>Provider: Coursera</span>
+                </div>
+                <a href="https://www.simplilearn.com/learn-git-basics-skillup" target="_blank" class="cert-link">View Course &rarr;</a>
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-image cse">
+                <i class="fab fa-aws"></i> AWS Cloud Practitioner (Sample Image)
+            </div>
+            <div class="cert-content">
+                <h4>AWS Certified Cloud Practitioner</h4>
+                <div class="cert-info">
+                    <span class="cert-type paid">PAID</span>
+                    <span>Provider: Amazon AWS</span>
+                </div>
+                <a href="https://aws.amazon.com/training/" target="_blank" class="cert-link">View Exam &rarr;</a>
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-image cse">
+                <i class="fas fa-shield-alt"></i> Certified Ethical Hacker (Sample Image)
+            </div>
+            <div class="cert-content">
+                <h4>Certified Ethical Hacker (CEH)</h4>
+                <div class="cert-info">
+                    <span class="cert-type paid">PAID</span>
+                    <span>Provider: EC-Council</span>
+                </div>
+                <a href="https://www.netacad.com/courses/ethical-hacker?courseLang=en-US
+cse" target="_blank" class="cert-link">View Course &rarr;</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+        <section id="ece" class="branch-section">
+            <div class="branch-header">
+                <h3><i class="fas fa-microchip"></i> Electronics and Communication Engineering (ECE)</h3>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-image ece">
+                        <i class="fas fa-robot"></i> Introduction to Arduino (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Introduction to Arduino and IoT</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: NPTEL</span>
+                        </div>
+                        <a href="https://alison.com/tag/arduino?utm_source=google&utm_medium=cpc&utm_campaign=PPC_Tier-5_First-Click_Publisher-Courses&utm_adgroup=Tag_Arduino&gclid=CjwKCAjw89jGBhB0EiwA2o1Onz_kHo4U3bxdBqhpJel8IDA71KLn4PqjgNgD07RLEJ_Uq8I1r1WBGhoCIdkQAvD_BwE&gad_source=1&gad_campaignid=20470033371&gbraid=0AAAAADt7cD3wJbuKfI7eSWYGmZZC0h71z#google_vignette" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-image ece">
+                        <i class="fas fa-signal"></i> Digital Signal Processing (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Digital Signal Processing Basics</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: Coursera</span>
+                        </div>
+                        <a href="https://alison.com/?utm_source=google&utm_medium=cpc&utm_campaign=PPC_Tier-5_First-Click_Publisher-Courses&utm_adgroup=Product_Courses&gclid=CjwKCAjw89jGBhB0EiwA2o1On10PCuS4zTqKTaFaZwlTcd4mA7aoVhklOGRrBdxdCuQBwKBVBY2rxxoCStQQAvD_BwE&gad_source=1&gad_campaignid=20470033371&gbraid=0AAAAADt7cD3wJbuKfI7eSWYGmZZC0h71z" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image ece">
+                        <i class="fas fa-broadcast-tower"></i> Wireless Communication (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Fundamentals of Wireless Comms</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: Coursera</span>
+                        </div>
+                        <a href="https://www.netacad.com/networking" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image ece">
+                        <i class="fas fa-ethernet"></i> Cisco CCNA (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Cisco Certified Network Associate (CCNA)</h4>
+                        <div class="cert-info">
+                            <span class="cert-type paid">PAID</span>
+                            <span>Provider: Cisco</span>
+                        </div>
+                        <a href="https://alison.com/course/advanced-diploma-in-introduction-to-internet-of-things?utm_source=google&utm_medium=cpc&utm_campaign=Performance-Max_Tier-5_Tag-Caregiving&gad_source=1&gad_campaignid=22562790451&gbraid=0AAAAADt7cD1sm-VrGdWQmqPg-Ecnk0JhJ&gclid=CjwKCAjw89jGBhB0EiwA2o1OnxP9xoPXOoROWbkfH4ObNi0OGG3_HL9EjgkcJkDpLmgHXl-IxIu5ERoC8c4QAvD_BwE" target="_blank" class="cert-link">View Exam &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image ece">
+                        <i class="fas fa-server"></i> Certified IoT Architect (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Certified IoT Architect</h4>
+                        <div class="cert-info">
+                            <span class="cert-type paid">PAID</span>
+                            <span>Provider: Various</span>
+                        </div>
+                        <a href="https://alison.com/course/advanced-diploma-in-introduction-to-internet-of-things?utm_source=google&utm_medium=cpc&utm_campaign=Performance-Max_Tier-5_Tag-Caregiving&gad_source=1&gad_campaignid=22562790451&gbraid=0AAAAADt7cD1sm-VrGdWQmqPg-Ecnk0JhJ&gclid=CjwKCAjw89jGBhB0EiwA2o1OnxP9xoPXOoROWbkfH4ObNi0OGG3_HL9EjgkcJkDpLmgHXl-IxIu5ERoC8c4QAvD_BwE" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="eee" class="branch-section">
+            <div class="branch-header">
+                <h3><i class="fas fa-bolt"></i> Electrical and Electronics Engineering (EEE)</h3>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-image eee">
+                        <i class="fas fa-lightbulb"></i> Power System Basics (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Introduction to Power Systems</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: NPTEL</span>
+                        </div>
+                        <a href="https://www.ul.com/services/testing-certification-services-controls?utm_mktocampaign={campaign}&utm_mktoadid=719089195087&campaignid=21854194043&adgroupid=168284636126&matchtype=b&device=c&creative=719089195087&keyword=electrical%20controls%20certification&gad_source=1&gad_campaignid=21854194043&gbraid=0AAAAADfjmY9Gig3q0m_7zm_h6PN7BvZvR&gclid=CjwKCAjw89jGBhB0EiwA2o1On5o9_TS2szh6-loRrlvPIw1oF0okd5b4k6nJAC2srkPwEWv5RDKIzhoC4j4QAvD_BwE" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image eee">
+                        <i class="fas fa-charging-station"></i> Renewable Energy Sources (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Fundamentals of Renewable Energy</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: edX</span>
+                        </div>
+                        <a href="https://www.ul.com/services/testing-certification-services-controls?utm_mktocampaign={campaign}&utm_mktoadid=719089195087&campaignid=21854194043&adgroupid=168284636126&matchtype=b&device=c&creative=719089195087&keyword=electrical%20controls%20certification&gad_source=1&gad_campaignid=21854194043&gbraid=0AAAAADfjmY9Gig3q0m_7zm_h6PN7BvZvR&gclid=CjwKCAjw89jGBhB0EiwA2o1On5o9_TS2szh6-loRrlvPIw1oF0okd5b4k6nJAC2srkPwEWv5RDKIzhoC4j4QAvD_BwE" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image eee">
+                        <i class="fas fa-wave-square"></i> Electric Machines Theory (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Basic Electric Machines Theory</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: Coursera</span>
+                        </div>
+                        <a href="https://alison.com/course/energy-management-and-regulation?utm_source=google&utm_medium=cpc&utm_campaign=Performance-Max_Tier-5_Tag-Food-Safety&gad_source=1&gad_campaignid=22826113645&gbraid=0AAAAADt7cD3aEFw8NsAEGRj9gQEjfAppG&gclid=CjwKCAjw89jGBhB0EiwA2o1On4EkuDnI0zguINF0kIuTrCwR7wNiRvNKRjHYzol79OhiQ-1PmaMNPxoCtRIQAvD_BwE" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image eee">
+                        <i class="fas fa-solar-panel"></i> Certified Energy Manager (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Certified Energy Manager (CEM)</h4>
+                        <div class="cert-info">
+                            <span class="cert-type paid">PAID</span>
+                            <span>Provider: AEE</span>
+                        </div>
+                        <a href="https://www.coursera.org/courses?query=automation" target="_blank" class="cert-link">View Exam &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image eee">
+                        <i class="fas fa-cogs"></i> Industrial Automation (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Certified Industrial Automation Engineer</h4>
+                        <div class="cert-info">
+                            <span class="cert-type paid">PAID</span>
+                            <span>Provider: Various</span>
+                        </div>
+                        <a href="https://www.coursera.org/courses?query=automation" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="mech" class="branch-section">
+            <div class="branch-header">
+                <h3><i class="fas fa-cogs"></i> Mechanical Engineering (MECH)</h3>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-image mech">
+                        <i class="fas fa-drafting-compass"></i> AutoCAD Essential Training (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>AutoCAD Essential Training</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: Autodesk</span>
+                        </div>
+                        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChsSEwiw_9fZjfaPAxV4E4MDHWsQMrkYACICCAEQARoCc2Y&ae=2&co=1&ase=3&agsac=EBDrjj26QGA&gclid=CjwKCAjw89jGBhB0EiwA2o1Ony-e2tTd77rrOaLVGNppSkzJMv-1cn9zVuAPfPEsCKQED1DnM-z2dhoCStUQAvD_BwE&ohost=www.google.com&cid=CAES9gHg9nU_tYxDAq-Ww9CmQH8FuOzF7h-USKsiCPwiwQjHQ-HNLiw2V7lEn56RWiaF1S7J7wJGe4Mo9JmZNAvlErjqsceTVZpErfPhtDqBkudUwSIqeZeaM17fydV8WEnmaySPT7GWUhxmLiudVirMGJ11B9jEy1w71hoiBPH02TMui7YXgmox2KPzipwQbaj1pf50X9XtGcUbyWf6oIxYHBQj-geDfmXOU3B0LDyXsyEfnR5pcJE-81zaJmfye9oAJ6EoeISFR3MZqqmpyKW83R1I5HmNSkQkRHqrGaCxHhiuitRuvkIOmRmLMwxZp1JL1HCqGimKJCs&sig=AOD64_0VCBYgDXn7KIb4ipVM084GcfwswA&q&adurl&ved=2ahUKEwi6jNDZjfaPAxU11DgGHf8uCyoQ0Qx6BAgWEAE&ms=CoAC__ThdyQqOSWKvt9GFJgfznzEjki2X7HV379FnUluGEf2S8jOMjhReBZicnKlY9GvxDiPeURfj9XoH7yvAijGDU3sctV7Gu_hJzuuPMc5wBsIBsK6_VJ6TbeULVlvDD5p0fgyKl_GcuZAvP1bABIph70q1d1LSN2zzpPkQzVeeIheHBb46Nm8oqpfNWS3oV7E0GZXS06-FRDF9A-uzVvau1NM-lXreEkVlETt1AIhBUQ-97muArLev99VMQ-Fe9mjuAwBi4mokSGGwx8HX7za7RFvkbdLzTDLt6tftCSUi5kVEluARVC_GevTQjmFhB_WKF5HdXeBSanTW5ZVro6A4gqAAlifRiH3ubpt4oiTBdWgdRA31SmvqXM3LdnkHIecJszEtPoJaOScIcTZoaXnAvg78g4wxv-fFMzya9hLeT3GCqAC4jcMCSUBFOqUUu53n5yffMrLqIyM-564MLbuPFbd-LYDyy3LAhk4bHQGNsM7BGnQAbNLmzwRFZGTYvfhKmHnDWMjL3acCLRQvam3s7rfBBE_wQi5tKMylHCQ_CruLOb5e1orhKSrqip1l5JLup1JaCpmggUIU_LGuKGb6DnX-OfHf_WiRysFySz6DHy3nZh3_811uHTXQpIj1j6RhmC27ZVJtx1uZdSbVGYC4sfYjPMmTz6s-v94EhrCFAZcc-0SEPK1hm3IIBlnBkv9FCDQh2o&nis=12&uk=1758878687523" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image mech">
+                        <i class="fas fa-wrench"></i> Thermodynamics Basics (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Fundamentals of Thermodynamics</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: NPTEL</span>
+                        </div>
+                        <a href="https://www.coursera.org/courses?query=thermodynamics" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image mech">
+                        <i class="fas fa-industry"></i> Manufacturing Process Intro (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Introduction to Manufacturing</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: edX</span>
+                        </div>
+                        <a href="https://alison.com/tag/manufacturing?utm_source=google&utm_medium=cpc&utm_campaign=Performance-Max_Tier-5_Workplace-Personality-Assessment&gad_source=1&gad_campaignid=21247195883&gbraid=0AAAAADt7cD1oIOA1Dv9GCGTw-vtI4TiJv&gclid=CjwKCAjw89jGBhB0EiwA2o1OnzHGfUDNrq2iPUGzODeYx1U06WTYcxpka2gDm__CvbaXPnGf_ka03RoC5soQAvD_BwE" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image mech">
+                        <i class="fas fa-users-cog"></i> Certified SolidWorks Associate (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Certified SolidWorks Associate (CSWA)</h4>
+                        <div class="cert-info">
+                            <span class="cert-type paid">PAID</span>
+                            <span>Provider: Dassault Systèmes</span>
+                        </div>
+                        <a href="https://alison.com/tag/solidworks?utm_source=google&utm_medium=cpc&utm_campaign=PPC_Tier-5_First-Click_Publisher-Courses&utm_adgroup=Tag_Solidworks&gclid=CjwKCAjw89jGBhB0EiwA2o1On3M1gQrZEk3I0Wn5kuGXUeOOeHyUI2KRMIFeYOOlrmzNQr5S__G-8BoC-AgQAvD_BwE&gad_source=1&gad_campaignid=20470033371&gbraid=0AAAAADt7cD04kddpS0dmLx5gZX_-YWadt" target="_blank" class="cert-link">View Exam &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image mech">
+                        <i class="fas fa-line-chart"></i> Six Sigma Green Belt (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Six Sigma Green Belt Certification</h4>
+                        <div class="cert-info">
+                            <span class="cert-type paid">PAID</span>
+                            <span>Provider: ASQ/Various</span>
+                        </div>
+                        <a href="https://alison.com/tag/solidworks?utm_source=google&utm_medium=cpc&utm_campaign=PPC_Tier-5_First-Click_Publisher-Courses&utm_adgroup=Tag_Solidworks&gclid=CjwKCAjw89jGBhB0EiwA2o1On3M1gQrZEk3I0Wn5kuGXUeOOeHyUI2KRMIFeYOOlrmzNQr5S__G-8BoC-AgQAvD_BwE&gad_source=1&gad_campaignid=20470033371&gbraid=0AAAAADt7cD04kddpS0dmLx5gZX_-YWadt" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+        
+        <section id="civil" class="branch-section">
+            <div class="branch-header">
+                <h3><i class="fas fa-building"></i> Civil Engineering (CIVIL)</h3>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-image civil">
+                        <i class="fas fa-ruler-combined"></i> Revit Architecture Basics (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Revit Architecture Fundamentals</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: Autodesk</span>
+                        </div>
+                        <a href="https://alison.com/tag/revit?utm_source=google&utm_medium=cpc&utm_campaign=PPC_Tier-5_First-Click_Publisher-Courses&utm_adgroup=Tag_Revit&gclid=CjwKCAjw89jGBhB0EiwA2o1On_ttfFhhEEBZZwD2azN0dvM2zE11tltX6o1QU30UztGAWX9WiZOD6RoCmVoQAvD_BwE&gad_source=1&gad_campaignid=20470033371&gbraid=0AAAAADt7cD04kddpS0dmLx5gZX_-YWadt" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image civil">
+                        <i class="fas fa-road"></i> Transportation Engineering (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Introduction to Transportation Engg.</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: NPTEL</span>
+                        </div>
+                        <a href="https://alison.com/tag/engineering?utm_source=google&utm_medium=cpc&utm_campaign=PPC_Tier-5_First-Click_Publisher-Courses&utm_adgroup=Tag_Engineering&gclid=CjwKCAjw89jGBhB0EiwA2o1On-mD0LRy7OTGxncnGzJdLLYrH0K0_tCNjt8eMTe9CV4lZj4TaJ23VBoCBGMQAvD_BwE&gad_source=1&gad_campaignid=20470033371&gbraid=0AAAAADt7cD04kddpS0dmLx5gZX_-YWadt" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image civil">
+                        <i class="fas fa-water"></i> Fluid Mechanics Principles (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>Basic Fluid Mechanics</h4>
+                        <div class="cert-info">
+                            <span class="cert-type free">FREE</span>
+                            <span>Provider: edX</span>
+                        </div>
+                        <a href="https://www.coursera.org/courses?query=fluid%20mechanics" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image civil">
+                        <i class="fas fa-globe-americas"></i> GIS Professional Certification (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>GIS Professional Certification</h4>
+                        <div class="cert-info">
+                            <span class="cert-type paid">PAID</span>
+                            <span>Provider: Esri/Various</span>
+                        </div>
+                        <a href="https://igmpi.ac.in/remote-sensing-and-geographic-information-system?gad_source=1&gad_campaignid=22508744774&gbraid=0AAAAADsCOjWBPNSb3Rjj45v0jCW6V6VGV&gclid=CjwKCAjw89jGBhB0EiwA2o1On8F4gZRGHLPYTlED3n2PfVieM_tIjwvn4NGmOYVQc1uFr1s3RnfBHRoCMu8QAvD_BwE" target="_blank" class="cert-link">View Exam &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image civil">
+                        <i class="fas fa-hard-hat"></i> Certified Associate in Project Management (Sample Image)
+                    </div>
+                    <div class="cert-content">
+                        <h4>CAPM (Project Management)</h4>
+                        <div class="cert-info">
+                            <span class="cert-type paid">PAID</span>
+                            <span>Provider: PMI</span>
+                        </div>
+                        <a href="https://igmpi.ac.in/remote-sensing-and-geographic-information-system?gad_source=1&gad_campaignid=22508744774&gbraid=0AAAAADsCOjWBPNSb3Rjj45v0jCW6V6VGV&gclid=CjwKCAjw89jGBhB0EiwA2o1On8F4gZRGHLPYTlED3n2PfVieM_tIjwvn4NGmOYVQc1uFr1s3RnfBHRoCMu8QAvD_BwE" target="_blank" class="cert-link">View Course &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    </body>
+</html>
